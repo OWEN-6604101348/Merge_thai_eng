@@ -43,6 +43,15 @@
         ]"
       />
 
+      <q-input
+        filled
+        v-model="language"
+        label="ภาษา*"
+        hint="ภาษา"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่ภาษา']"
+      />
+
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
@@ -65,6 +74,7 @@ export default {
     const name = ref("Poramat")
     const surname = ref("Junyon")
     const age = ref(null)
+    const lang = ref(null)
     const accept = ref(false)
 
     return {
@@ -72,6 +82,7 @@ export default {
       name,
       surname,
       age,
+      lang,
       accept,
 
       onSubmit () {
@@ -98,6 +109,7 @@ export default {
         name.value = null
         surname.value = null
         age.value = null
+        lang.value = null
         accept.value = false
       }
     }
